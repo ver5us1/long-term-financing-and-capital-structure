@@ -1,0 +1,10 @@
+{
+  "historical_tax_rate": 0.20,
+  "scenario_tax_rate": 0.25,
+  "market_risk_premium": 0.06,
+  "relative_debt_cost_step_per_10pp": 0.015,
+  "scenario_year": 2024,
+  "beta_interpretation": "source_beta_assumed_unlevered",
+  "capital_basis": "book_equity_plus_interest_bearing_loans",
+  "notes": "Historical 20%, scenario 25% and ERP 6 pp come from the workbook. Beta status is unverified. Debt cost sensitivity is an educational assumption; scenarios hold capital and net profit constant."
+}

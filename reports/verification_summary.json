@@ -1,0 +1,10 @@
+{
+  "total": 1104,
+  "formula_count": 1104,
+  "matched": 1096,
+  "expected_errors": 8,
+  "mismatches": 0,
+  "missing_cache": 0,
+  "max_absolute_error": 8.171241461241152e-14,
+  "all_accounted_for": true
+}

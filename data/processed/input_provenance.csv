@@ -1,0 +1,82 @@
+year,field,source_sheet,source_cells,input_unit
+2022,revenue_k_rub,ТЭП,C4,thousand_rub
+2022,cost_of_sales_k_rub,ТЭП,C5,thousand_rub
+2022,net_profit_k_rub,ТЭП,C6,thousand_rub
+2022,gross_profit_k_rub,ТЭП,C19,thousand_rub
+2022,income_tax_k_rub,ТЭП,C20,thousand_rub
+2022,operating_profit_k_rub,ТЭП,C21,thousand_rub
+2022,pretax_profit_k_rub,ТЭП,C22,thousand_rub
+2022,interest_expense_k_rub,ТЭП,C23,thousand_rub
+2022,noncurrent_assets_k_rub,"ПАО ""ЛУКОЙЛ""","D5,D7,D8,D9,D10,D13,D14,D15,D16",thousand_rub
+2022,current_assets_k_rub,"ПАО ""ЛУКОЙЛ""","D19,D20,D21,D24,D25,D26",thousand_rub
+2022,book_equity_k_rub,"ПАО ""ЛУКОЙЛ""","D35,D36,D37,D38,D39,D40",thousand_rub
+2022,long_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","D43,D44,D45,D46",thousand_rub
+2022,short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","D49,D50,D52,D53,D54",thousand_rub
+2022,long_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",D43,thousand_rub
+2022,short_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",D49,thousand_rub
+2022,trade_payables_k_rub,"ПАО ""ЛУКОЙЛ""",D50,thousand_rub
+2022,dividends_payable_k_rub,"ПАО ""ЛУКОЙЛ""",D51,thousand_rub
+2022,current_provisions_k_rub,"ПАО ""ЛУКОЙЛ""",D53,thousand_rub
+2022,deferred_income_k_rub,"ПАО ""ЛУКОЙЛ""",D52,thousand_rub
+2022,long_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",D22,thousand_rub
+2022,inventory_k_rub,"ПАО ""ЛУКОЙЛ""",D19,thousand_rub
+2022,vat_k_rub,"ПАО ""ЛУКОЙЛ""",D20,thousand_rub
+2022,short_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",D23,thousand_rub
+2022,other_current_assets_k_rub,"ПАО ""ЛУКОЙЛ""",D26,thousand_rub
+2022,short_term_investments_k_rub,"ПАО ""ЛУКОЙЛ""",D24,thousand_rub
+2022,cash_k_rub,"ПАО ""ЛУКОЙЛ""",D25,thousand_rub
+2022,other_short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""",D54,thousand_rub
+2023,revenue_k_rub,ТЭП,D4,thousand_rub
+2023,cost_of_sales_k_rub,ТЭП,D5,thousand_rub
+2023,net_profit_k_rub,ТЭП,D6,thousand_rub
+2023,gross_profit_k_rub,ТЭП,D19,thousand_rub
+2023,income_tax_k_rub,ТЭП,D20,thousand_rub
+2023,operating_profit_k_rub,ТЭП,D21,thousand_rub
+2023,pretax_profit_k_rub,ТЭП,D22,thousand_rub
+2023,interest_expense_k_rub,ТЭП,D23,thousand_rub
+2023,noncurrent_assets_k_rub,"ПАО ""ЛУКОЙЛ""","E5,E7,E8,E9,E10,E13,E14,E15,E16",thousand_rub
+2023,current_assets_k_rub,"ПАО ""ЛУКОЙЛ""","E19,E20,E21,E24,E25,E26",thousand_rub
+2023,book_equity_k_rub,"ПАО ""ЛУКОЙЛ""","E35,E36,E37,E38,E39,E40",thousand_rub
+2023,long_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","E43,E44,E45,E46",thousand_rub
+2023,short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","E49,E50,E52,E53,E54",thousand_rub
+2023,long_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",E43,thousand_rub
+2023,short_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",E49,thousand_rub
+2023,trade_payables_k_rub,"ПАО ""ЛУКОЙЛ""",E50,thousand_rub
+2023,dividends_payable_k_rub,"ПАО ""ЛУКОЙЛ""",E51,thousand_rub
+2023,current_provisions_k_rub,"ПАО ""ЛУКОЙЛ""",E53,thousand_rub
+2023,deferred_income_k_rub,"ПАО ""ЛУКОЙЛ""",E52,thousand_rub
+2023,long_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",E22,thousand_rub
+2023,inventory_k_rub,"ПАО ""ЛУКОЙЛ""",E19,thousand_rub
+2023,vat_k_rub,"ПАО ""ЛУКОЙЛ""",E20,thousand_rub
+2023,short_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",E23,thousand_rub
+2023,other_current_assets_k_rub,"ПАО ""ЛУКОЙЛ""",E26,thousand_rub
+2023,short_term_investments_k_rub,"ПАО ""ЛУКОЙЛ""",E24,thousand_rub
+2023,cash_k_rub,"ПАО ""ЛУКОЙЛ""",E25,thousand_rub
+2023,other_short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""",E54,thousand_rub
+2024,revenue_k_rub,ТЭП,E4,thousand_rub
+2024,cost_of_sales_k_rub,ТЭП,E5,thousand_rub
+2024,net_profit_k_rub,ТЭП,E6,thousand_rub
+2024,gross_profit_k_rub,ТЭП,E19,thousand_rub
+2024,income_tax_k_rub,ТЭП,E20,thousand_rub
+2024,operating_profit_k_rub,ТЭП,E21,thousand_rub
+2024,pretax_profit_k_rub,ТЭП,E22,thousand_rub
+2024,interest_expense_k_rub,ТЭП,E23,thousand_rub
+2024,noncurrent_assets_k_rub,"ПАО ""ЛУКОЙЛ""","F5,F7,F8,F9,F10,F13,F14,F15,F16",thousand_rub
+2024,current_assets_k_rub,"ПАО ""ЛУКОЙЛ""","F19,F20,F21,F24,F25,F26",thousand_rub
+2024,book_equity_k_rub,"ПАО ""ЛУКОЙЛ""","F35,F36,F37,F38,F39,F40",thousand_rub
+2024,long_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","F43,F44,F45,F46",thousand_rub
+2024,short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""","F49,F50,F52,F53,F54",thousand_rub
+2024,long_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",F43,thousand_rub
+2024,short_term_loans_k_rub,"ПАО ""ЛУКОЙЛ""",F49,thousand_rub
+2024,trade_payables_k_rub,"ПАО ""ЛУКОЙЛ""",F50,thousand_rub
+2024,dividends_payable_k_rub,"ПАО ""ЛУКОЙЛ""",F51,thousand_rub
+2024,current_provisions_k_rub,"ПАО ""ЛУКОЙЛ""",F53,thousand_rub
+2024,deferred_income_k_rub,"ПАО ""ЛУКОЙЛ""",F52,thousand_rub
+2024,long_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",F22,thousand_rub
+2024,inventory_k_rub,"ПАО ""ЛУКОЙЛ""",F19,thousand_rub
+2024,vat_k_rub,"ПАО ""ЛУКОЙЛ""",F20,thousand_rub
+2024,short_term_receivables_k_rub,"ПАО ""ЛУКОЙЛ""",F23,thousand_rub
+2024,other_current_assets_k_rub,"ПАО ""ЛУКОЙЛ""",F26,thousand_rub
+2024,short_term_investments_k_rub,"ПАО ""ЛУКОЙЛ""",F24,thousand_rub
+2024,cash_k_rub,"ПАО ""ЛУКОЙЛ""",F25,thousand_rub
+2024,other_short_term_liabilities_k_rub,"ПАО ""ЛУКОЙЛ""",F54,thousand_rub
