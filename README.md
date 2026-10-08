@@ -1,64 +1,143 @@
-# LUKOIL financing analysis
+<div align="center">
 
-Reproducible Python portfolio project based on an academic Excel model for PAO LUKOIL, 2022–2024. The project demonstrates financial data extraction, formula migration, data-quality checks, CAPM and Hamada calculations, WACC analysis, scenario modelling, and clear visual reporting.
+# Выбор источников долгосрочного финансирования
 
-The repository has two layers:
+### Воспроизводимый Python-анализ структуры капитала ПАО «ЛУКОЙЛ»
 
-1. **Excel reconstruction** recalculates the 1,104 formulas from a metadata-free JSON snapshot without executing formula text. It matches 1,096 numeric or logical results and preserves 8 expected `#DIV/0!` results at 100% debt.
-2. **Consistent analytical model** uses book equity (line 1300) and interest-bearing loans (lines 1410 + 1510) in one unit system. It keeps the workbook's alternative definitions available for comparison and documents every material discrepancy.
+<p>
+  <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+">
+  <img src="https://img.shields.io/badge/Pandas-data%20analysis-150458?logo=pandas&logoColor=white" alt="Pandas">
+  <img src="https://img.shields.io/badge/Tests-11%20passed-2EA44F" alt="Tests passed">
+  <img src="https://img.shields.io/badge/Excel%20formulas-1104-217346?logo=microsoftexcel&logoColor=white" alt="Excel formulas">
+</p>
 
-The analysis covers three annual observations and 747 daily rate observations. It is suitable for demonstrating ETL, auditability, financial analysis, and reproducibility. The source does not support a credible predictive ML claim, a cash-flow NPV, or a proven optimal capital structure.
+<p>
+  <a href="reports/analysis_report.md">Итоговый отчёт</a> ·
+  <a href="notebooks/01_financing_analysis.ipynb">Jupyter Notebook</a> ·
+  <a href="docs/methodology.md">Методология</a> ·
+  <a href="docs/source-audit.md">Аудит источника</a>
+</p>
 
-## Run locally
+</div>
 
-The project requires Python 3.11 or newer.
+## О проекте
+
+Проект переводит расчёты учебной работы из Excel в воспроизводимый Python pipeline. На данных ПАО «ЛУКОЙЛ» за 2022–2024 годы рассчитываются финансовые показатели, стоимость собственного и заёмного капитала, CAPM, модель Хамады, WACC и сценарии структуры капитала.
+
+Главная особенность проекта — разделение двух задач. Первый слой точно воспроизводит исходные Excel-формулы и проверяет их значения. Второй слой использует единое определение капитала и показывает финансовый результат без скрытого смешения единиц и видов долга.
+
+## Что внутри
+
+| Блок | Результат |
+|---|---|
+| Перенос Excel → Python | Безопасный парсер арифметики, ссылок, диапазонов, `SUM` и `AVERAGE` |
+| Контроль качества | Сверка всех 1 104 формул с сохранёнными результатами Excel |
+| Финансовый анализ | Выручка, прибыль, маржа, ROE, структура капитала и динамика долга |
+| Стоимость капитала | CAPM, Hamada beta, стоимость долга после налога и WACC |
+| Сценарии | Доля долга от 0% до 90% и чувствительность WACC к цене долга |
+| Визуализация | Четыре графика и автоматически сформированный аналитический отчёт |
+
+## Результаты
+
+| Показатель | 2022 | 2023 | 2024 |
+|---|---:|---:|---:|
+| Выручка, млрд ₽ | 2 874,04 | 2 753,48 | 3 046,94 |
+| Чистая прибыль, млрд ₽ | 790,12 | 655,29 | 732,52 |
+| Собственный капитал, млрд ₽ | 1 265,17 | 1 308,07 | 1 339,94 |
+| Процентный долг, млрд ₽ | 649,58 | 671,71 | 687,30 |
+| Доля долга в капитале | 33,93% | 33,93% | 33,90% |
+| WACC согласованной модели | 11,20% | 11,86% | 15,04% |
+
+## Визуальный отчёт
+
+<table>
+  <tr>
+    <td width="50%"><img src="reports/figures/01_financial_history.png" alt="Финансовая база анализа"></td>
+    <td width="50%"><img src="reports/figures/02_risk_free_rates.png" alt="Безрисковая ставка"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="reports/figures/03_scenario_comparison.png" alt="Сравнение сценарных моделей"></td>
+    <td width="50%"><img src="reports/figures/04_wacc_sensitivity.png" alt="Чувствительность WACC"></td>
+  </tr>
+</table>
+
+## Быстрый запуск
 
 ```bash
-cd financing-analysis
+git clone https://github.com/ver5us1/long-term-financing-and-capital-structure.git
+cd long-term-financing-and-capital-structure
+
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate       # macOS / Linux
+
 python -m pip install -e ".[dev]"
 financing-analysis run
 ```
 
-The command writes calculated CSV tables to `data/processed/`, a reconciliation table and summary to `reports/`, four PNG figures to `reports/figures/`, and the narrative report to `reports/analysis_report.md`.
+После запуска обновляются:
 
-To verify the Excel migration only:
+- `data/processed/` — таблицы анализа в CSV;
+- `reports/analysis_report.md` — итоговый отчёт;
+- `reports/figures/` — графики;
+- `reports/excel_reconciliation.csv` — построчная сверка формул;
+- `reports/verification_summary.json` — итог проверки.
+
+Проверка только Excel-слоя:
 
 ```bash
 financing-analysis verify
 ```
 
-To rebuild the portable source snapshot from the original workbook supplied with the academic project, keep that file outside the repository and run:
+Ожидаемый результат: **1 096 совпадений, 8 ожидаемых ошибок деления на ноль, 0 неожиданных расхождений**.
 
-```bash
-financing-analysis import-excel \
-  --excel /path/to/Бунтин_Расчеты.xlsx \
-  --output-dir data/source
+## Запуск notebook
+
+Открой `notebooks/01_financing_analysis.ipynb` в Jupyter или VS Code и выполни ячейки по порядку. Notebook использует тот же pipeline, что и команда `financing-analysis run`, поэтому результаты не дублируются вручную.
+
+## Структура проекта
+
+```text
+.
+├── data/
+│   ├── source/              # обезличенный снимок Excel и допущения
+│   └── processed/           # готовые таблицы анализа
+├── docs/                    # методология и аудит исходных расчётов
+├── notebooks/               # пошаговый анализ
+├── reports/                 # отчёт, сверка и графики
+├── src/financing_analysis/
+│   ├── excel_engine.py      # безопасный пересчёт Excel-подмножества
+│   ├── workbook_io.py       # импорт исходной книги в JSON-снимок
+│   ├── extraction.py        # извлечение входов с координатами источника
+│   ├── finance.py           # финансовые формулы
+│   ├── pipeline.py          # единая точка запуска анализа
+│   └── visualization.py     # построение графиков
+├── tests/                   # тесты расчётов и сверки
+└── pyproject.toml
 ```
 
-The committed snapshot contains values, formulas, and cached values. It excludes workbook author metadata, comments, and the original DOCX/PPTX files.
+## Методология
 
-## Explore the result
+В согласованной модели используются:
 
-Open `notebooks/01_financing_analysis.ipynb` and run all cells. The notebook calls the same pipeline as the CLI, so the displayed tables and figures remain reproducible. Start with `reports/analysis_report.md` for the analyst-facing interpretation, then read `docs/source-audit.md` for exact Excel cell references and `docs/methodology.md` for formula definitions and limitations.
+```text
+wD = D / (E + D)
+wE = E / (E + D)
+kd_after_tax = (interest / D) × (1 − tax)
+beta_levered = beta_unlevered × (1 + (1 − tax) × D / E)
+ke = risk_free + beta_levered × market_risk_premium
+WACC = wE × ke + wD × kd_after_tax
+```
 
-## Repository map
+Денежные значения исходника хранятся в тысячах рублей. В отчёте они показываются в млрд ₽. Веса капитала используют бухгалтерский собственный капитал и процентные займы, чтобы единообразно рассчитать `D / E`, стоимость долга и WACC.
 
-| Path | Purpose |
-|---|---|
-| `src/financing_analysis/excel_engine.py` | Safe parser and recalculation of the workbook formula subset |
-| `src/financing_analysis/workbook_io.py` | Import and load the portable workbook snapshot |
-| `src/financing_analysis/extraction.py` | Typed source extraction with sheet and cell provenance |
-| `src/financing_analysis/finance.py` | Tested financial formulas and boundary handling |
-| `src/financing_analysis/pipeline.py` | End-to-end calculation and output generation |
-| `data/source/assumptions.json` | Explicit rates and scenario assumptions |
-| `data/source/workbook_snapshot.json` | Sanitised formula/value evidence from Excel |
-| `data/processed/` | Reusable tables generated by the pipeline |
-| `reports/` | Reconciliation, figures, and narrative report |
-| `docs/` | Methodology and source audit |
+## Ограничения
 
-## Quality checks
+- В источнике только три годовых наблюдения, поэтому проект демонстрирует финансовую аналитику и воспроизводимость, а не прогнозную ML-модель.
+- Исходная beta не имеет подтверждённого статуса `levered` или `unlevered`. В согласованной модели она используется как `unlevered beta` только как учебное допущение.
+- Минимум WACC на сценарной сетке не является рекомендацией по долговой нагрузке. Модель не включает кредитные ковенанты, вероятность дефолта и стоимость финансовых затруднений.
+- В документации сохранены расхождения исходного Excel, чтобы результат можно было проверить и воспроизвести.
+
+## Проверки качества
 
 ```bash
 ruff check .
@@ -66,8 +145,12 @@ ruff format --check .
 pytest -q
 ```
 
-The CI workflow runs the same checks on Python 3.11 and 3.12.
+Проект также запускает эти проверки через GitHub Actions для Python 3.11 и 3.12.
 
-## Data and interpretation notes
+## Источник данных
 
-The source material mixes debt scopes, tax rates, and monetary units. The project keeps those variants visible instead of silently replacing them. The source beta's levered/unlevered status is unverified, so the consistent model treats it as an unlevered beta only as an educational assumption. The 90% debt point can be the minimum of a deterministic grid, but the project does not present it as a financing recommendation.
+В репозитории хранится обезличенный JSON-снимок исходной книги с формулами и сохранёнными значениями. Титульные страницы DOCX/PPTX, авторские метаданные и исходные файлы в репозиторий не включены.
+
+## Лицензия
+
+Учебный проект для портфолио и демонстрации воспроизводимого финансового анализа.
